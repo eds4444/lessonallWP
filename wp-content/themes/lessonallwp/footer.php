@@ -11,7 +11,7 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="site-footer" style="background:#f9f9f9">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'lessonallwp' ) ); ?>">
 				<?php
@@ -27,6 +27,8 @@
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
+
+<?php ?>
 
 <?php wp_footer(); ?>
 
