@@ -18,15 +18,17 @@ function lessonallWP_enqueue_scripts(){
 add_action('wp_enqueue_scripts', 'lessonallWP_enqueue_scripts');
 
 
-function lessonallWP_show_meta(){
-	echo "hello 1";
-}
-function lessonallWP_show_meta2(){
-	echo "hello 2";
-}
-add_action('wp_footer', 'lessonallWP_show_meta', 100);
-add_action('wp_footer', 'lessonallWP_show_meta2', 10);
+function lessonallWP_body_class($classes){
 
+	if(is_front_page()){
+		$classes[]= 'main_class';
+	}
+	else if(is_singular()){
+		$classes[]= 'extra_class';
+	}
+	return $classes;
+}
+add_filter('body_class', 'lessonallWP_body_class');
 
 
 
