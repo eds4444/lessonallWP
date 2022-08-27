@@ -7,6 +7,27 @@
  * @package lessonallWP
  */
 
+function lessonallWP_enqueue_scripts(){
+	wp_enqueue_style('lessonallWP-general', get_template_directory_uri(). '/assets/css/general.css', array(), '1.0', 'all');
+	wp_enqueue_script('lessonallWP-script', get_template_directory_uri(). '/assets/js/script.js', array('jquery'), '1.0', true );
+	
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action('wp_enqueue_scripts', 'lessonallWP_enqueue_scripts');
+
+
+
+
+
+
+
+
+
+
+
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -134,20 +155,7 @@ function lessonallwp_widgets_init() {
 }
 add_action( 'widgets_init', 'lessonallwp_widgets_init' );
 
-/**
- * Enqueue scripts and styles.
- */
-function lessonallwp_scripts() {
-	wp_enqueue_style( 'lessonallwp-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'lessonallwp-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'lessonallwp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'lessonallwp_scripts' );
 
 /**
  * Implement the Custom Header feature.
