@@ -19,9 +19,13 @@ add_action('wp_enqueue_scripts', 'lessonallWP_enqueue_scripts');
 
 
 function lessonallWP_show_meta(){
-	echo "hello";
+	echo "hello 1";
 }
-add_action('wp_body_open', 'lessonallWP_show_meta');
+function lessonallWP_show_meta2(){
+	echo "hello 2";
+}
+add_action('wp_footer', 'lessonallWP_show_meta', 100);
+add_action('wp_footer', 'lessonallWP_show_meta2', 10);
 
 
 
