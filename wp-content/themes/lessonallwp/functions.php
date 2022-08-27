@@ -18,7 +18,10 @@ function lessonallWP_enqueue_scripts(){
 add_action('wp_enqueue_scripts', 'lessonallWP_enqueue_scripts');
 
 
-
+function lessonallWP_show_meta(){
+	echo "<meta name='author' content='YEFIMOV'>";
+}
+add_action('wp_head', 'lessonallWP_show_meta');
 
 
 
