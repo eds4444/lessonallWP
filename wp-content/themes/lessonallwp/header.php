@@ -23,4 +23,5 @@
 <body <?php body_class(); ?>>
 
 <?php wp_body_open(); ?>
-test 1
+
+Test 1
