@@ -24,4 +24,13 @@
 
 <?php wp_body_open(); ?>
 
+<?php wp_nav_menu(
+	array(
+	'theme_location' => 'header_nav',
+	'menu_class' => 'myclass',
+	'conteiner' => 'div',
+	'fallback_cb' => 'wp_page_menu',
+	'depth' => '2'
+)); ?>
+
 Test 1

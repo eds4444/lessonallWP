@@ -18,18 +18,13 @@ function lessonallWP_enqueue_scripts(){
 add_action('wp_enqueue_scripts', 'lessonallWP_enqueue_scripts');
 
 
-function lessonallWP_body_class($classes){
-
-	if(is_front_page()){
-		$classes[]= 'main_class';
-	}
-	else if(is_singular()){
-		$classes[]= 'extra_class';
-	}
-	return $classes;
+function lessonallWP_register_menus(){
+	register_nav_menus(array(
+		'header_nav' => 'Header Navigation',
+		'footer_nav' => 'Footer Navigation'
+	));
 }
-add_filter('body_class', 'lessonallWP_body_class');
-
+add_action('after_setup_theme', 'lessonallWP_register_menus', 0);
 
 
 
@@ -76,12 +71,7 @@ function lessonallwp_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus(
-		array(
-			'menu-1' => esc_html__( 'Primary', 'lessonallwp' ),
-		)
-	);
+	
 
 	/*
 		* Switch default core markup for search form, comment form, and comments
